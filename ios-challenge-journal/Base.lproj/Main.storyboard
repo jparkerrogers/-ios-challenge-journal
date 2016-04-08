@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5e3-p2-Ggx">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -72,12 +72,60 @@
                     <view key="view" contentMode="scaleToFill" id="4Fy-U4-egO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter title here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xU1-pV-JWF">
+                                <rect key="frame" x="39" y="109" width="241" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="M20-lx-fUF" id="Lr7-eM-QHc"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzP-hx-bhj">
+                                <rect key="frame" x="234" y="500" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vkE-36-59y">
+                                <rect key="frame" x="20" y="165" width="280" height="301"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="M20-lx-fUF" id="bmu-0r-TBu"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xU1-pV-JWF" firstAttribute="top" secondItem="MEI-t5-PHl" secondAttribute="bottom" constant="45" id="6WK-1D-tAL"/>
+                            <constraint firstItem="vkE-36-59y" firstAttribute="leading" secondItem="4Fy-U4-egO" secondAttribute="leading" constant="20" id="9dl-VZ-4Px"/>
+                            <constraint firstItem="vkE-36-59y" firstAttribute="top" secondItem="xU1-pV-JWF" secondAttribute="bottom" constant="26" id="Cmx-Wk-XDO"/>
+                            <constraint firstAttribute="trailing" secondItem="vkE-36-59y" secondAttribute="trailing" constant="20" id="OfX-Hb-QrQ"/>
+                            <constraint firstItem="QzP-hx-bhj" firstAttribute="top" secondItem="vkE-36-59y" secondAttribute="bottom" constant="34" id="TQc-hx-vwE"/>
+                            <constraint firstItem="oPn-wm-7kv" firstAttribute="top" secondItem="vkE-36-59y" secondAttribute="bottom" constant="102" id="VDr-rw-g86"/>
+                            <constraint firstItem="oPn-wm-7kv" firstAttribute="top" secondItem="QzP-hx-bhj" secondAttribute="bottom" constant="38" id="aLO-ip-wg4"/>
+                            <constraint firstAttribute="trailing" secondItem="QzP-hx-bhj" secondAttribute="trailing" constant="40" id="dsu-SV-v5v"/>
+                            <constraint firstAttribute="trailing" secondItem="xU1-pV-JWF" secondAttribute="trailing" constant="40" id="eaa-Pb-S2G"/>
+                            <constraint firstItem="xU1-pV-JWF" firstAttribute="leading" secondItem="4Fy-U4-egO" secondAttribute="leading" constant="39" id="k4E-AF-QdW"/>
+                            <constraint firstItem="QzP-hx-bhj" firstAttribute="leading" secondItem="4Fy-U4-egO" secondAttribute="leading" constant="234" id="kbM-Se-Ate"/>
+                            <constraint firstItem="vkE-36-59y" firstAttribute="top" secondItem="xU1-pV-JWF" secondAttribute="bottom" constant="26" id="rXq-vL-Uej"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="VHE-bN-hSr">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="69r-HW-sJO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="69r-HW-sJO">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="M20-lx-fUF" id="5ph-7t-xhu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="entryTextField" destination="xU1-pV-JWF" id="kgr-3J-FN1"/>
+                        <outlet property="entryTextView" destination="vkE-36-59y" id="Rp3-Bb-bYF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ssn-uj-454" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
